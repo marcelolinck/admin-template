@@ -1,5 +1,5 @@
 import { IconeAjustes, IconeCasa, IconeSair, IconeSino } from "../Icons/Index"
-import Logo from "./Logo"
+import Logo from './Logo'
 import MenuItem from "./MenuItem"
 
 export default function MenuLateral() {
@@ -24,8 +24,9 @@ export default function MenuLateral() {
             </ul>
             <ul>
                 <MenuItem url="/" texto="Sair" icone={IconeSair} onClick={()=>console.log('Logout!')} className={`
-                text-red-600
+                text-red-600 dark:text-red-400
                 hover:bg-red-400 hover:text-white
+                dark:hover:text-white
                 `}/>
               
             </ul>

@@ -28,7 +28,7 @@ export default function MenuItem(props: MenuItemProps) {
 
     return (
         <li onClick={props.onClick} className={`
-            hover:bg-gray-100
+            hover:bg-gray-100 dark:hover:bg-gray-800
             cursor-pointer
         `}>
             {props.url ? (
