@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 
 interface AuthContextProps {
     usuario?: Usuario
+    carregando?:boolean
     loginGoogle?: Promise<void>
     logout?: Promise<void>
 }
@@ -88,6 +89,8 @@ export function AuthProvider(props) {
             //Essa funcao faz com que o Firebase avise quando tiver uma mudança no token do usuario
             const cancelar = firebase.auth().onIdTokenChanged(configurarSessao)
             return () => cancelar()
+        }else{
+            setCarregando(false)
         }
 
     }, [])
@@ -96,6 +99,7 @@ export function AuthProvider(props) {
     return (
         <AuthContext.Provider value={{
             usuario,
+            carregando,
             loginGoogle, 
             logout
         }}>
