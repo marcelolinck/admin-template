@@ -1,8 +1,12 @@
+import useAuth from "../../data/hook/useAuth"
 import { IconeAjustes, IconeCasa, IconeSair, IconeSino } from "../Icons/Index"
 import Logo from './Logo'
 import MenuItem from "./MenuItem"
 
 export default function MenuLateral() {
+
+    const { logout } = useAuth()
+
     return (
         <aside className={`
             flex flex-col 
@@ -15,7 +19,7 @@ export default function MenuLateral() {
             h-20
             w-20
             `}>
-                <Logo / >
+                <Logo />
             </div>
             <ul className="flex-grow">
                 <MenuItem url="/" texto="Início" icone={IconeCasa} />
@@ -23,12 +27,12 @@ export default function MenuLateral() {
                 <MenuItem url="/notificacoes" texto="Notificações" icone={IconeSino} />
             </ul>
             <ul>
-                <MenuItem url="/" texto="Sair" icone={IconeSair} onClick={()=>console.log('Logout!')} className={`
+                <MenuItem url="/" texto="Sair" icone={IconeSair} onClick={logout} className={`
                 text-red-600 dark:text-red-400
                 hover:bg-red-400 hover:text-white
                 dark:hover:text-white
-                `}/>
-              
+                `} />
+
             </ul>
         </aside>
     )
